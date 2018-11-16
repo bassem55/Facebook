@@ -22,11 +22,9 @@ class login
         {
 
             $email = $this->con->real_escape_string($this->name);
-            $pass2 = $this->con->real_escape_string($this->pass);
-
             if ($this->email_found($this->name) == true)//first check if email founded in database or not
             {
-                if ($this->check_pass($this->pass) == true)//if pass just number and chars
+                if ($this->check_pass($this->pass) == "good")//if pass just number and chars
                 {
                     $select = $this->con->query("SELECT  password FROM login WHERE email ='" . $email . "' AND password ='" . $pass2 . "'");
 
@@ -35,7 +33,7 @@ class login
                     } else
                         $this->error = "Un Correct Password";
                 }
-                else if ($this->check_pass($this->pass) == "names" || $this->check_pass($this->pass) == "tag")
+                else if ($this->check_pass($this->pass) == "names" || $this->check_pass($this->pass) == "tag" || $this->check_pass($this->pass) == "special")
                 {
                     $select = $this->con->query('SELECT  password FROM login WHERE email ="' . $email . '"');
                     if ($select->num_rows == 1)
@@ -60,15 +58,14 @@ class login
 
         else if($this->is_phone_number($username , 12))
         {
-            $pass2 = $this->con->real_escape_string($this->pass);
 
-            if ($this->phone_found($this->name))//first check if phone found or not
+            if ($this->phone_found($username))//first check if phone found or not
             {
-                if ($this->check_pass($this->pass) == true)
+                if ($this->check_pass($this->pass) == "good")
                 {
-                    $select = $this->con->query('SELECT phone , password FROM login WHERE phone ="' . $username . '"  AND password ="' . $pass2 . '" ');
+                    $select = $this->con->query('SELECT  password FROM login WHERE phone ="' . $username . '"  AND password ="'. $this->pass .'"');
 
-                    if ($select->num_rows == 0)
+                    if ($select->num_rows > 0)
                     {
                         $this->error = "member";
                     }
@@ -78,7 +75,7 @@ class login
                     }
                 }
                 //we want to take care if he but any tag in password but not tell him that it is error
-                else if ($this->check_pass($this->pass) == "names" || $this->check_pass($this->pass) == "tag")
+                else if ($this->check_pass($this->pass) == "names" || $this->check_pass($this->pass) == "tag" || $this->check_pass($this->pass) == "special")
                 {
                     $select = $this->con->query('SELECT  password FROM login WHERE phone ="' . $username . '"');
 
@@ -147,7 +144,7 @@ class login
             return false;
         }
     }
-    private function is_email($email , $last_part)
+    public function is_email($email , $last_part)
     {
         if(filter_var($email,FILTER_VALIDATE_EMAIL))
         {
@@ -164,7 +161,7 @@ class login
             return false;
 
     }
-    private function is_phone_number($phone , $len)
+    public function is_phone_number($phone , $len)
     {
         if(strlen($phone) == $len)
         {
@@ -193,6 +190,10 @@ class login
         {
             return "names";
         }
+        else if(strlen($pass) > strlen($this->con->real_escape_string($pass)))
+        {
+          return "special";
+        }
         else
             return "good";
     }
@@ -211,9 +212,38 @@ class login
 if(isset($_POST['username']) && isset($_POST['password']))
 {
     $login = new login("localhost" , "root" , "","facebook");
-    $output = $login->start_login($_POST['username'] , $_POST['password']);
+
+    $username = $_POST['username'];
+    $password = $_POST['password'];
+
+    //if user enter phone number like this 01202873616 we will rescive it 201202873616
+    if($login->is_phone_number($_POST['username'] , 11) == true)
+    {
+      $username = "2" .  $_POST['username'] ;
+    }
+    else if($login->is_phone_number($_POST['username'] , 12) == true)
+    {
+      $username = $_POST['username'];
+    }
+    $output = $login->start_login($username , $password);
     if($output == "good")
     {
+        //this cookie will work for year
+        setcookie('login' , 'true' , time() + (86400 * 30 * 12) , '/');
+
+        session_start();
+        if($login->is_email($_POST['username'] , "gmail.com") == true || $login->is_email($_POST['username'] , "yahoo.com") == true)
+        {
+          //session username will be the email but without @gmail.com and without @yahoo.com
+          $arr = explode("@" , $_POST['username']);
+          $_SESSION['username'] = $arr[0];
+        }
+        else if($login->is_phone_number($_POST['username'] , 11) == true || $login->is_phone_number($_POST['username'] , 12) == true)
+        {
+          //session username will be phone number and in home page will be use him to get some information
+          $_SESSION['username'] = $_POST['username'];
+        }
+
         echo 1;
     }
     else
