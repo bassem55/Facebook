@@ -171,7 +171,7 @@ class sign_up
             return false;
         }
     }
-    private function is_email($email , $last_part)
+    public function is_email($email , $last_part)
     {
         if(filter_var($email,FILTER_VALIDATE_EMAIL))
         {
@@ -188,7 +188,7 @@ class sign_up
             return false;
 
     }
-    private function is_phone_number($phone , $len)
+    public function is_phone_number($phone , $len)
     {
         if(strlen($phone) == $len)
         {
@@ -366,9 +366,19 @@ class sign_up
     if(isset($_POST['first_name']) && isset($_POST['last_name']) && isset($_POST['email_or_phone']) && isset($_POST['password']) && isset($_POST['year'])  && isset($_POST['month'])  && isset($_POST['day']) && isset($_POST['sex']))
     {
         $birthday = $_POST['year'] . "-" .$_POST['month'] . "-" . $_POST['day'];
+        $username = $_POST['email_or_phone'];
 
         $sign_up = new sign_up("localhost" , "root" , "" , "facebook");
-        $output =  $sign_up->start_sign_up($_POST['first_name'] , $_POST['last_name'] , $_POST['email_or_phone'] , $_POST['password'] ,$birthday  , $_POST['sex']);
+
+        if($sign_up->is_phone_number($_POST['email_or_phone'] , 11) == true)
+        {
+          $username = "2" .  $_POST['email_or_phone'] ;
+        }
+        else if($sign_up->is_phone_number($_POST['email_or_phone'] , 12) == true)
+        {
+          $username = $_POST['email_or_phone'];
+        }
+        $output =  $sign_up->start_sign_up($_POST['first_name'] , $_POST['last_name'] , $username , $_POST['password'] ,$birthday  , $_POST['sex']);
         if($output == "good")
         {
             echo 1;
@@ -377,4 +387,3 @@ class sign_up
             echo  $output;
     }
 ?>
-
