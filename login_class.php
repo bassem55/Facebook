@@ -228,21 +228,25 @@ if(isset($_POST['username']) && isset($_POST['password']))
     $output = $login->start_login($username , $password);
     if($output == "good")
     {
-        //this cookie will work for year
-        setcookie('login' , 'true' , time() + (86400 * 30 * 12) , '/');
-
         session_start();
-        if($login->is_email($_POST['username'] , "gmail.com") == true || $login->is_email($_POST['username'] , "yahoo.com") == true)
+        if($login->is_email($username , "gmail.com") == true || $login->is_email($username , "yahoo.com") == true)
         {
           //session username will be the email but without @gmail.com and without @yahoo.com
-          $arr = explode("@" , $_POST['username']);
+          $arr = explode("@" , $username);
           $_SESSION['username'] = $arr[0];
+
+          //this cookie will work for year
+          setcookie('login' , arr[0] , time() + (86400 * 30 * 12) , '/');
         }
-        else if($login->is_phone_number($_POST['username'] , 11) == true || $login->is_phone_number($_POST['username'] , 12) == true)
+        else if($login->is_phone_number($username , 11) == true || $login->is_phone_number($username , 12) == true)
         {
           //session username will be phone number and in home page will be use him to get some information
-          $_SESSION['username'] = $_POST['username'];
+          $_SESSION['username'] = $username;
+
+          //this cookie will work for year
+          setcookie('login' , $username  , time() + (86400 * 30 * 12) , '/');
         }
+
 
         echo 1;
     }
