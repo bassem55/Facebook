@@ -60,7 +60,7 @@ function sign_up()
             {
                 if (req.responseText == 1)
                 {
-                    window.location.assign("home.php");
+                    window.location.assign("profile.php");
                     //show_error(error_div , error , "Sign Up Done Welcome To Facebook ");
 
                 }
@@ -70,7 +70,7 @@ function sign_up()
                 }
             }
         };
-        req.open("POST", "signup_class.php", true);
+        req.open("POST", "classes/signup.php", true);
         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         req.send("first_name=" + first_name.value + "&last_name=" + last_name.value + "&email_or_phone=" + email_or_phone.value + "&password=" + pass.value + "&year=" + year + "&month=" + month + "&day=" + day + "&sex=" + sex);
     }
@@ -110,7 +110,7 @@ function login()
             {
                 if(req.responseText == 1)
                 {
-                    window.location.assign("home.php");
+                    window.location.assign("profile.php");
                     //show_error(error_div , error , "Log In Done Welcome To Facebook");
                 }
                 else
@@ -119,7 +119,7 @@ function login()
                 }
             }
         };
-        req.open("post" , "login_class.php" , true);
+        req.open("post" , "classes/login.php" , true);
         req.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         req.send("username=" + username.value + "&password=" + pass.value);
     }
