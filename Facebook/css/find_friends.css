@@ -1,0 +1,143 @@
+container_friends{
+	width: 60%;
+	background: #ffffff;
+	margin-left: 6%;
+	overflow: hidden;
+	margin-bottom: 40px;
+}
+.your_friends_request,
+.people_you_now{
+	display: block;
+}
+
+.your_friends_request h3,
+.people_you_now h3{
+	font-weight: 100
+}
+.image_find {
+	width: 100px;
+	height: 100px;
+	float: left;
+
+}
+.image_find img{
+	height: 100% !import;
+	width: 100% !import;
+	border-radius: inherit;
+}
+.your_friends_request > h3,
+.people_you_now >h3 {
+	margin-left: 2%;
+}
+.your_friends_request .head,
+.your_friends_request .control,
+.people_you_now .head,
+.people_you_now .control{
+	float: left;
+}
+.your_friends_request .head,
+.people_you_now .head{
+	color: #365899;
+	margin-left: 8px;
+}
+.your_friends_request .head a h3,
+.people_you_now .head a h3{
+	color: blue;
+    padding: 4px;
+    text-transform: capitalize;
+    width: max-content;
+    font-size: 15px;
+    margin-top: 10px;
+    margin-bottom: 6px;
+}
+.your_friends_request .control,
+.people_you_now .control{
+	float: right;
+	margin-right: 1%;
+	margin-top: 1%;
+}
+.friend_name
+{
+	text-decoration: none;
+	border: none;
+    padding: 4px 6px;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 100;
+    border-radius: 3px;
+}
+.confirm
+{
+	border: none;
+    padding: 4px 6px;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: 100;
+    border-radius: 3px;
+    background: #4267b2;
+    color: white;
+}
+.remove
+{
+	font-size: 20px;
+	font-weight: 100;
+	background: #f5f6f7;
+	color: black;
+	border:1px solid #c5c3c3;
+	border-radius: 3px;
+	text-transform: capitalize;
+	border: none;
+    padding: 4px 6px;
+}
+.b-friends
+{
+	border: none;
+    padding: 4px 6px;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 100;
+    border-radius: 3px;
+    background: #4267b2;
+    color: white;
+    margin-right:30px;
+}
+.b-req
+{
+	border: none;
+    padding: 4px 6px;
+    text-transform: capitalize;
+    font-size: 30px;
+    font-weight: 100;
+    border-radius: 3px;
+    background: #80ffff;
+    color: blue;
+    margin-right:30px;
+}
+.your_friends_request .control button:nth-of-type(2),
+.people_you_now .control button:nth-of-type(2){
+	background: #f5f6f7;
+	color: black;
+	border:1px solid #c5c3c3;
+}
+.your_friends_request,
+.people_you_now{
+	display: block;;
+	overflow: hidden;
+	border: 1px solid #c5c3c3;
+	border-top: none;
+	margin-top: 2px;
+}
+.your_friends_request .surronded .friends,
+.people_you_now .surronded .friends{
+	overflow: hidden;
+    margin-bottom: 4px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+	margin-left: 2%;
+	border-bottom: 1px solid #c5c3c3;
+	margin-right: 2%;
+}
+.your_friends_request .surronded:first-of-type,
+.people_you_now .surronded:first-of-type{
+	border-top: 1px solid #c5c3c3;
+}

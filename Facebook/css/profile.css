@@ -1,0 +1,606 @@
+/* the our gloabal work */
+* {box-sizing: border-box;}
+body {
+    margin: 0;
+   
+}
+.contanier{width:1240px;margin: auto;}
+.display{display: inline-block}
+.main-back{background: #4267b2; }
+.main-color{color: #4267b2}
+.margin-top{margin-top: 8px}
+.hidden {visibility: hidden;}
+.visible{visibility: visible}
+.ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.img{
+  width: 30px;
+  height: 30px;
+
+}
+/* Start for grid view responsive*/
+@media only screen and (min-width: 600px) {
+    /* For tablets: */
+    .col-m-1 {width: 8.33%;}
+    .col-m-2 {width: 16.66%;}
+    .col-m-3 {width: 25%;}
+    .col-m-4 {width: 33.33%;}
+    .col-m-5 {width: 41.66%;}
+    .col-m-6 {width: 50%;}
+    .col-m-7 {width: 58.33%;}
+    .col-m-8 {width: 66.66%;}
+    .col-m-9 {width: 75%;}
+    .col-m-10 {width: 83.33%;}
+    .col-m-11 {width: 91.66%;}
+    .col-m-12 {width: 100%;}
+}
+@media only screen and (min-width: 768px) {
+    /* For desktop: */   
+    .col-1 {width: 8.33%;}
+    .col-2 {width: 16.66%;}
+    .col-3 {width: 25%;}
+    .col-4 {width: 33.33%;}
+    .col-5 {width: 41.66%;}
+    .col-6 {width: 50%;}
+    .col-7 {width: 58.33%;}
+    .col-8 {width: 66.66%;}
+    .col-9 {width: 75%;}
+    .col-10 {width: 83.33%;}
+    .col-11 {width: 91.66%;}
+    .col-12 {width: 100%;}
+}
+[class*="col-"]{
+    float: left;
+}
+.row::after{
+    content: "";
+    clear: both;
+    display: table;
+}
+/* End of grid view responsive*/
+/* End our global work*/
+/* Start of header */
+.header {height: 42px; position: relative; width: 100%;}
+.search {background: seagreen;height: 16px;}
+.header .contanier .logo{
+    background: white;
+    width: 24px;
+    height: 24px;
+    margin-top: 8px;
+    margin-right: 7px;
+    border-radius: 2px;
+}
+.header .contanier .logo i{
+    text-indent: 6px;
+    font-size: x-large;
+    margin-top: 2px;
+}
+.header .search {position: relative;}
+.header .search input{
+    width: 100%;
+    border-radius: 2px;
+    border: none;
+    height: 23px;
+}
+.header .search button{
+    position: absolute;
+    bottom: 0px;
+    right: 0;
+    z-index: 1;
+    height: 23px;
+    width: 46px;
+    top: 0;
+    background: #f6f7f9;
+    border: none;
+    cursor: pointer;
+    border-radius: 0 3px  3px 0;
+}
+.header .search button i{font-size: 12px;text-align: center;}
+.header .search button:hover{ background: buttonface;}
+.header .search form input [placeholder="Search"]{text-indent:5px;}
+.header .contanier .links {
+    height:42px;  
+    margin-left: 8.33%;
+    overflow: hidden;
+}
+.header .contanier .links ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    cursor: pointer;
+    position: relative;
+}
+.header .contanier .links ul li{
+     float: left;
+     margin-left: 20px;
+     background-color: transparent;
+     padding: 3px;
+     padding-top: 8px;
+     margin-top: 1px;
+     padding-bottom: 6px;
+     height: 28px;
+}
+.header .contanier .links ul li a{
+    text-decoration: none;
+    color: white;
+    vertical-align: top;
+}
+.header .contanier .links ul li img{
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    margin-top: -8px;
+}
+.header .contanier .links ul li:hover{background: rgba(0, 0, 0, .1);border-radius: 3px;}
+.header .contanier .links ul li:nth-child(2):before{
+    background: rgba(0, 0, 0, .1);
+    content: '';
+    display: block;
+    height: 18px;
+    left: 119px;
+    position: absolute;
+    top: 7px;
+    width: 1px;
+}
+.header .contanier .links ul li:nth-child(2):after{
+    background: rgba(0, 0, 0, .1);
+    content: '';
+    display: block;
+    height: 18px;
+    left: 181px;
+    position: absolute;
+    top: 7px;
+    width: 1px;
+}
+.header .contanier .contact{height: inherit;}
+.header .contanier .contact ul {list-style: none;padding: 0;margin: 0;}
+.header .contanier .contact ul li{float: left;position: relative;display: inline-block;}
+.tooltiptext{
+    visibility: hidden;
+    width: 100px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    font-size: 13px;
+    position: absolute;
+    z-index: 1;
+    top: 34px;
+}
+.header .contanier .contact ul li:hover .tooltiptext{ visibility: visible;}
+.header .contanier .contact .tooltiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 14%;
+    margin-left: -4px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+.header .contanier .contact img {
+    width: 24px;
+    height: 24px;
+    border: none;
+    border-radius: 50%;
+    margin-right:10px;
+    margin-top: 3px;
+}
+.header .contanier .contact ul li:nth-child(5) img{ width: 12px;height: 12px; margin-top: 9px;}
+.header .contanier .contact ul li:nth-child(4){margin-left: 9px;}
+.header .contanier .contact ul li .Firend-requested,
+.header .contanier .contact ul li .messages{
+    height: 600px;
+    width: 450px;  
+    content: " ";
+    position: absolute;
+    right: -58px;
+    top: 127%;
+    margin-left: -4px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+    border: 1px solid #dddfe2;
+    overflow-y: scroll;
+   
+}
+.header .contanier .contact ul li .Firend-requested h3{
+  color: black;
+}
+
+.contact ul li .Firend-requested:after,
+.contact ul li .messages:after{
+    content: " ";
+    position: absolute;
+    bottom: 100%; 
+    margin-left: -10px;
+    left: 83%;
+    border-width: 10px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+.contact ul li .Firend-requested .header,
+.contact ul li .messages .header{
+    padding-bottom: 18px;
+    padding-top: 12px;
+    padding-left: 7px;
+    padding-right: 7px;
+    padding-bottom: 25px;
+}
+.header .contanier .contact ul li .Firend-requested .header span,
+.header .contanier .contact ul li .messages.header span{
+    display: inline-block;
+    float: left;
+    font-size: 14px;
+    font-weight: bold;
+}
+.header .contanier .contact ul li .Firend-requested .header a,
+.header .contanier .contact ul li .messages .header a {
+    float: right;
+    text-decoration: none;
+    margin-left: 10px;
+    color:#1B5CD9;
+}
+.people_maybe_now{
+  border-top: 1px solid #e8e8e8;
+}
+.people_maybe_now >h3{
+   margin-left: 10px;
+  font-size: 20px;
+  font-weight: 100;
+  text-transform: capitalize;
+
+}
+.friends_confirm,
+.friends_add{
+   overflow: hidden;
+   padding-bottom: 5px;
+   padding-top: 5px;
+   border-top: 1px solid #e8e8e8;
+   
+}
+.friends_confirm:hover{
+   background: #fbfbfb;
+}
+.friends_confirm .friends_confirm_image,
+.friends_add .friends_add_image{
+    float: left;
+}
+.friends_confirm .confirm_head,
+.friends_add .add_head{
+    display: inline-block;
+    margin: 0px;
+    float: left;
+    margin-top: 14px;
+}
+.friends_confirm .confirm_head h3,
+.friends_add .add_head h3{
+    margin: 0px;
+    display: inline-block;
+    font-weight: 100;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    font-size: 16px;
+}
+.friends_confirm .confirm_head h3 a,
+.friends_add .add_head h3 a{
+   text-decoration: none;
+}
+.friends_confirm .button,
+.friends_add .button{
+    display: inline-block;
+    float: right;
+    margin-top: 14px;
+    margin-right: 10px;
+}
+.friends_confirm .button button,
+.friends_add .button button{
+    border: none;
+    padding: 5px 6px;
+    border-radius: 4px;
+    background: cornflowerblue;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+}
+.friends_confirm .button button:nth-of-type(2),
+.friends_add .button button:nth-of-type(2){
+    background: #dadada;
+}
+.header .contanier .contact ul li .request,
+.header .contanier .contact ul li .message{
+    position: relative;
+    margin-bottom: 0px;
+    border-top: 1px solid #dddfe2;
+    padding-top: 8px;
+    padding-bottom: 8px;
+}
+.contact ul li .request .info-request,
+.contact ul li .message .info-message{
+    position: relative;
+    margin-left: 8px;
+    display: inline-block;
+    width: 44%;
+}
+.contact ul li .request .info-request  img,
+.contact ul li .message .info-message  img{
+    width:50px;
+    height: 50px;
+    border-radius: 50%;
+}
+.contact ul li .request .info-request h3,
+.contact ul li .message .info-messge h3{
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 13px;
+    font-size: 14px;
+    margin-left: 10px;
+    color:#4267B2;
+}
+.contact ul li .request .info-request a,
+.contact ul li .message .info-message a{
+    text-decoration: none;
+    color: #A9ACB3;
+    font-weight: initial;
+    position: absolute;
+    top: 30px;
+    margin-left: 10px
+}
+.header .contanier .contact ul li .request  form{float: right;width: 42%; }
+.header .contanier .contact ul li .request form button{
+    position: absolute;
+    top: 18px;
+    display: inline-block;
+    font-family: initial;
+}
+.contact ul li .request form button:first-child{
+    background-color: #4267B2;
+    border: none;
+    padding: 5px;
+    border-radius: 4px 4px 2px 2px;
+    color: white;
+    right: 116px;
+}
+.contact ul li .request form button:last-child{
+    right: 8px;
+    background-color: #CED0D4;
+    border-color: #ced0d4;
+    border: none;
+    padding: 5px;
+    border-radius: 4px 4px 2px 2px;
+    color: #595C63;
+}
+.contact ul li .request form button:hover{cursor: pointer;}
+.contact ul li .request form :first-child:hover{background-color: #365899;border-color: #365899;}
+.contact ul li .request form :last-child:hover{background-color: buttonface;}
+.contact ul li .Firend-requested .head h4,
+.contact ul li .messages .head h4{padding: 0;margin: 0;}
+.contact ul li .Firend-requested .conthead,
+.contact ul li .messages .conthead{ border-top: 1px solid #dddfe2; padding: 8px 0 8px;}
+.contact ul li .Firend-requested .head,
+.contact ul li .messages.head{ margin-left: 8px; padding-bottom: 10px;color: #535353;}
+.contact ul li .Firend-requested .conthead .link,
+.contact ul li .messages .conthead .link{border-top: 1px solid #dddfe2;text-align: center;padding-top: 8px;}
+.contact ul li .Firend-requested .conthead .link a,
+.contact ul li .messages .conthead .link a{
+    text-decoration: none;
+    color: #365899;
+    font-size: larger;
+}
+.contact ul li .messages .conthead .head{
+    padding-left: 10px;
+}
+.messages .message{overflow: hidden;cursor: pointer;}
+.messages .message:hover{background: #F9F9F9;}
+.messages .message .info-message{padding: 5px 0 3px;float:left; width: 70%;}
+.messages .message .info-message h3{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    top: 14px;
+    right: 41px;
+    font-size: 14px;
+}
+.messages .message .info-message p{
+    padding: 0;
+    margin: 0;
+    position: absolute;
+    right: 34px;
+    top: 32px;
+}
+.messages .message .date{position: relative;}
+.messages .message .date span{float: right;display: inline-block;position: absolute;}
+.messages .message .date .first{right: 24px;top: 10px;}
+.messages .message .date .second{right: 18px;top: 35px;}
+
+.messanger {
+    position: absolute;
+    width: 283px;
+    height: 341px;
+    border: 1px solid #FAFAFA;;
+    right: 14%;
+    top: 319px;
+    border-radius: 4px;
+    display: none;
+   
+}
+.messanger .messanger-head {
+    overflow: hidden;
+    height: 26px;
+    padding-top: 3px;
+    padding-left: 6px;
+    border-bottom: 1px solid #F1EDED;
+    cursor: pointer;
+    background: #f6f7f9;
+    border-radius: 4px 4px 0 0;
+}
+
+.messanger .messanger-head:hover{ background: #E0E1E2;}
+.messanger .messanger-head a{text-decoration: none; color:#131C1C;}
+.messanger .messanger-head h4{
+    font-size: 14px;
+    padding: 0;
+    margin: 0;
+    color:#131C1C;
+    font-weight: 300;
+    float: left;
+}
+.messanger .messanger-head ul {
+    float: right;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.messanger .messanger-head ul li{
+    float: left;
+    margin-right: 11px;
+     color:#7F8081;;
+}
+.messanger .messanger-content{
+    overflow-y: scroll;
+    height:  72%;
+    border-bottom: 1px solid #F1EDED;
+}
+.messanger .messanger-content .content{
+    position: relative;
+    padding-top: 10px;
+}
+.messanger .messanger-content .content img{
+    width: 30px;
+    height: 30px;
+    margin-left: 5px;
+    position: absolute;
+    top: 15px;
+    border-radius: 50%;
+}
+.messanger .messanger-content .content span{
+     margin: 0;
+    position: absolute;
+    top: 14px;
+    left: 44px;
+    background: #F1F0F0;
+    padding: 8px;
+    border-radius: 18px;
+    font-size: 12px;
+}
+.messanger .messanger-content .content .second{
+    display: block;
+    position: absolute;
+    top: 59px;
+    left: 221px;
+    background: #4080FF;
+}
+.messanger .footer{padding-top: 5px;}
+.messanger .footer form{ margin-bottom: 2px;}
+.messanger .footer input{
+    border: none;
+    text-indent: 10px;
+    font-size: 15px;
+    height: 36px;
+    word-break: break-all;
+    width: 88%;
+    border-radius: 40px;
+    margin-left: 2px;
+}
+.messanger .footer button{
+    border: none;
+    padding: 4px;
+    width: 60px;
+    border-radius: 5px;
+    background: cadetblue;
+    margin-top: 3px;
+    float: right;
+    margin-right: 36px;
+}
+.messanger .footer input [placeholder="Type a message"]{ color: #E3E5E7;}
+.messanger .footer .footer-image{overflow: hidden;margin-left: 12px;}
+.messanger .footer .footer-image ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+.messanger .footer .footer-image ul li {
+    float: left;
+    color: #6D727B;
+    cursor: pointer;
+    font-size: 20px;
+    margin-right: 12px;
+}
+.messanger .footer .footer-image ul li:last-child{color: #4080FF;}
+.contact ul li .Firend-requested,
+.contact ul li .messages{
+    background: #fff;
+    border: 1px solid rgba(100, 100, 100, .4);
+    border-radius: 0 0 2px 2px;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, .25);
+}
+/* End header class*/
+/* Start of all divs class*/
+/* Start left section */
+
+.left_section {
+    overflow: hidden;
+    margin-right: 15px;
+     margin-left: 30px;
+   
+}
+.left_section .userNav{
+    margin-bottom: 8px;
+}
+.left_section .userNav ul{
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    padding: 0;
+}
+.left_section .userNav ul li{
+    padding: 2px;
+     border: none;
+     width:100%; 
+}
+.left_section .userNav ul li a{color:black}
+.left_section .userNav ul li img{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    float: left;
+}
+.left_section .userNav ul li h4{
+    padding: 0;
+    margin: 0;
+    line-height: 30px;
+    display: inline-block;
+    line-height: 27px;
+    margin-left: 6px;
+    font-size: 16px;
+    font-weight: 100;
+    border: none
+}
+.left_section .userNav ul li a span i {
+    float: right;
+    margin-right: 0px;
+    line-height: 28px;
+    border: none
+}
+.left_section .userNav ul li :hover span{visibility: visible;}
+.left_section .userNav ul li:hover{
+   border: 1px solid #F1EDED;
+   background: #F6F7F9;
+   border-radius: 2px;
+}
+.new-feed ul {
+    position: relative;
+}
+.new-feed ul li {
+    float: left;
+}
+
+/* End of left section */
+/* End of all divs class*
