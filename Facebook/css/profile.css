@@ -416,19 +416,14 @@ body {
     top: 32px;
 }
 .messages .message .date{position: relative;}
-.messages .message .date span{float: right;display: inline-block;position: absolute;}
-.messages .message .date .first{right: 24px;top: 10px;}
-.messages .message .date .second{right: 18px;top: 35px;}
 
 .messanger {
-    position: absolute;
+    
     width: 283px;
     height: 341px;
     border: 1px solid #FAFAFA;;
-    right: 14%;
-    top: 319px;
     border-radius: 4px;
-    display: none;
+    
    
 }
 .messanger .messanger-head {
@@ -479,23 +474,6 @@ body {
     position: absolute;
     top: 15px;
     border-radius: 50%;
-}
-.messanger .messanger-content .content span{
-     margin: 0;
-    position: absolute;
-    top: 14px;
-    left: 44px;
-    background: #F1F0F0;
-    padding: 8px;
-    border-radius: 18px;
-    font-size: 12px;
-}
-.messanger .messanger-content .content .second{
-    display: block;
-    position: absolute;
-    top: 59px;
-    left: 221px;
-    background: #4080FF;
 }
 .messanger .footer{padding-top: 5px;}
 .messanger .footer form{ margin-bottom: 2px;}
@@ -601,6 +579,77 @@ body {
 .new-feed ul li {
     float: left;
 }
-
-/* End of left section */
-/* End of all divs class*
+#friends
+{
+	position: fixed;
+    right: 0;
+    top: 200;
+    bottom: 0;
+    border-style: groove;
+    border-color: #edfdf8;
+    border-right-style: none;
+    width: 190px;
+    
+}
+.friend_btn
+{
+    width: 190px;
+    height: 50px;
+    border-style: none;
+    border-bottom-style: groove;
+    border-bottom-color: #edfdf8;
+    font-size: 18px;
+}
+.chat_rooms
+{
+    width: 900px;
+    height: 360px;
+    position: fixed;
+    bottom: 0;
+    right: 200;
+}
+#chat_room1
+{
+	display:none;
+    position: absolute;
+    right: 0;
+}
+#chat_room2
+{
+	display:none;
+    position: absolute;
+    right: 300;
+}
+#chat_room3
+{
+	display:none;
+    position: absolute;
+    left: 0;
+    
+}
+.from
+{
+    display: inline-block;
+    margin: 0;
+    position: absolute;
+    margin-top: 20px;
+    left: 10px;
+    background: #F1F0F0;
+     max-width: 200px;
+    padding: 8px;
+    border-radius: 18px;
+    font-size: 12px;
+    
+}
+.to
+{
+    display: inline-block;
+    position: absolute;
+    right: 10px;
+    margin-top: 20px;
+    background: #4080FF;
+    max-width: 200px;
+    padding: 8px;
+    border-radius: 18px;
+    font-size: 12px;
+}
