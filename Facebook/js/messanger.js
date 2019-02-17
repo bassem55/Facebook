@@ -46,7 +46,7 @@ function show(name , id)
 		else if(public_room1_status == true && public_room2_status == true && public_room3_status == false)
 		{
 			title3.innerHTML = name;
-			room3.styele.display = "block";
+			room3.style.display = "block";
 			public_room3_status = true;
 			public_room3_value = id;
 			public_room3_title = name;
@@ -174,7 +174,7 @@ function smart_chat()
 		//title2.innerHTML = public_room2_title;
 		get_msgs(public_room2_value);
 	}
-	if(public_room3_status == false)
+	if(public_room3_status == true)
 	{
 		//room3.style.display = "block";
 		//title3.innerHTML = public_room3_title;
@@ -185,4 +185,3 @@ setInterval(function(){
     if(public_room1_status == true || public_room2_status == true || public_room3_status == true)
         smart_chat();
 } , 1000);
-
