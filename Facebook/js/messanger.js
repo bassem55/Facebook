@@ -84,7 +84,7 @@ function close1(num)
 				public_room3_title = '';
 				title3.innerHTML = "";
 				
-				room3.style.disply = "none";
+				room3.style.display = "none";
 				
 				
 			}
