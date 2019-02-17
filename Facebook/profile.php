@@ -104,7 +104,6 @@ else
     		}
     		function send(num)
     		{
-        		
         		if(num == '1' || num == '2' || num == '3')
             	{
         			var friend_id;
@@ -126,7 +125,7 @@ else
                 		friend_id = public_room3_value;
                 		msg_name = "msg3";
                     }
-                    	
+                	
 					let msg = document.getElementById(msg_name);
 					if(msg.value != "")
 					{
@@ -306,7 +305,7 @@ else
                                         <div class="info-message"><!-- Start of info-message -->
                                             <img src="http://localhost/websites/facebook/images/pop.jpg">
                                             <h3> Abanoub talaat</h3>
-                                            <p>ÇíÉ ÇáÇÎÈÇÑ íÇ ÑíÓ </p>
+                                            <p>Ø§ÙŠØ© Ø§Ù„Ø§Ø®Ø¨Ø§Ø± ÙŠØ§ Ø±ÙŠØ³ </p>
                                             
                                         </div><!-- End of info info-message -->
                                         <div class="date"><!-- Start of date class-->
@@ -425,7 +424,7 @@ else
             <div class="footer"><!-- Start of footer class-->
                 <form>
                     <input id ="msg3" type="text" placeholder="Type a message">
-                    <input type="button" id="sendMessage" value="Send" value="send('3')">
+                    <input type="button" id="sendMessage" value="Send" onclick="send('3')">
                 </form>
                     
              
